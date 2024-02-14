@@ -12,6 +12,15 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        "api/*"
     ];
+
+    public function handle($request, \Closure $next)
+    {
+        if (in_array(env('APP_ENV'), ['local', 'dev'])) {
+            return $next($request);
+        }
+
+        return parent::handle($request, $next);
+    }
 }

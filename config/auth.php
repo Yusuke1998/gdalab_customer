@@ -40,6 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'tokens',
+            'hash' => false,
+        ],
+
+        'token' => [
+            'driver' => 'token',
+            'provider' => 'tokens',
+            'hash' => false,
+        ]
     ],
 
     /*
@@ -69,6 +81,13 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'tokens' => [
+            'driver' => 'token-driver',
+            'model' => App\Models\Token::class,
+            // 'input_key' => '',
+            // 'storage_key' => '',
+        ],
     ],
 
     /*
